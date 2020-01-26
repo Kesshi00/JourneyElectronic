@@ -1,10 +1,12 @@
 package com.example.JournalElectronic.dao;
 
 import com.example.JournalElectronic.model.User;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class UserDAO {
     static List<User> users  = new ArrayList<>();
 
