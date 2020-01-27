@@ -27,3 +27,5 @@ public class UserService {
         return userRepository.findAll();
     }
 }
+
+//class repaired
