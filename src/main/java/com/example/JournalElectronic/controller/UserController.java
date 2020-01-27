@@ -6,6 +6,7 @@ import com.example.JournalElectronic.service.UserService;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.io.DataOutputStream;
 import java.util.HashMap;
@@ -26,8 +27,13 @@ public class UserController {
     @PostMapping("/user")
         public User addUser(@ModelAttribute User user){
 //            User user = new User(name, surname, password, login );
-            return userService.saveUser(user);
+        System.out.println("Done!");
+        return userService.saveUser(user);
         }
+    public ModelAndView getAddUserViev(){
+        return new ModelAndView("login", "userToInsert", new User());
+    }
+
     @GetMapping("/testujemy")
     public String test() {
         return "test";

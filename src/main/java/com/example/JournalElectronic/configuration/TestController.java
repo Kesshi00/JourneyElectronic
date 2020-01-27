@@ -1,17 +1,19 @@
 package com.example.JournalElectronic.configuration;
 
+import com.example.JournalElectronic.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class TestController {
 
-    @GetMapping("/index.html")
+    @GetMapping("/index")
     public String index(){
         return "index";
     }
-    @GetMapping("/login.html")
-    public String login(){
-        return "login";
+    @GetMapping("/login")
+    public ModelAndView login(){
+        return new ModelAndView("login", "userToInsert", new User());
     }
 }
