@@ -11,7 +11,7 @@ public class UserDAO {
     static List<User> users  = new ArrayList<>();
 
     public static List<User> getUsers(){
-        users.add(new User( "Tomasz", "Kowalski", "lolo", "Kesshi"));
+        users.add(new User( "Tomasz", "Kowalski", "tom@tom.com", "123","tom"));
         return users;
     }
     public void addUser(User users){
