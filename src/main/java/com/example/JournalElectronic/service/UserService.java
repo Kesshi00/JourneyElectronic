@@ -2,10 +2,14 @@ package com.example.JournalElectronic.service;
 
 import com.example.JournalElectronic.model.User;
 import com.example.JournalElectronic.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.validation.constraints.Email;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -26,6 +30,13 @@ public class UserService {
     public List<User> getAllUsers(){
         return userRepository.findAll();
     }
-}
 
-//class repaired
+
+    //                                           TRZEBA SPRAWIĆ ABY TEN KOD ZADZIAŁAŁ!
+//    public boolean isUserPresent(String email){
+//        User user = (User) userRepository.findByUser(email);
+//        return false;
+//    }
+
+
+}

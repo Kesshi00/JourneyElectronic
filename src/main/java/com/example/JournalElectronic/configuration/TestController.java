@@ -8,12 +8,5 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class TestController {
 
-    @GetMapping("/index")
-    public String index(){
-        return "index";
-    }
-    @GetMapping("/login")
-    public ModelAndView login(){
-        return new ModelAndView("login", "userToInsert", new User());
-    }
+
 }

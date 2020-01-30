@@ -30,9 +30,7 @@ public class UserController {
         System.out.println("Done!");
         return userService.saveUser(user);
         }
-    public ModelAndView getAddUserViev(){
-        return new ModelAndView("login", "userToInsert", new User());
-    }
+
 
     @GetMapping("/testujemy")
     public String test() {
