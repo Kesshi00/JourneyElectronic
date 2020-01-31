@@ -19,7 +19,7 @@ public class Teacher extends Person {
     public void add(User users) {
 
     }
-
+    
     @OneToMany(mappedBy = "teacher")
     List<Class> classList;
 }

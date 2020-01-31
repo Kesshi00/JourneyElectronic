@@ -16,6 +16,7 @@ public class User extends Person {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @Valid
     @NotNull
     @NotEmpty

@@ -24,15 +24,17 @@ public class RegisterController {
         model.addAttribute("login", new User());
         return "register";
     }
-
-//                                           TRZEBA SPRAWIĆ ABY TEN KOD ZADZIAŁAŁ!
-//    @PostMapping("/register")
-//    public String registerUser(@Valid User user, BindingResult bindingResult) {
-//        if (bindingResult.hasErrors()) {
-//            return "register";
-//        }
-//    }
-
-
 }
-
+//    @PostMapping("/register")
+//    public String registerUser(@Valid User user, BindingResult bindingResult, Model model) {
+//        if (bindingResult.hasErrors()) {
+//            return "views/registerForm";
+//        }
+//        if (userService.isUserPresent(user.getEmail())) {
+//            model.addAttribute("exist", true);
+//            return "views/registerForm";
+//        }
+//        userService.addUser(user);
+//        return "views/success";
+//    }
+//}

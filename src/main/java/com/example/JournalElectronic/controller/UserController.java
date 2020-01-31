@@ -24,9 +24,8 @@ public class UserController {
         return "Server" + name;
     }
 
-    @PostMapping("/user")
+    @PostMapping("/register")
         public User addUser(@ModelAttribute User user){
-//            User user = new User(name, surname, password, login );
         System.out.println("Done!");
         return userService.saveUser(user);
         }
