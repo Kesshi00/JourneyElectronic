@@ -5,89 +5,53 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/registerStyle.css">
     <meta charset="UTF-8">
     <title>RegisterForm</title>
-    <style>
-        * {box-sizing: border-box}
 
-        /* Add padding to containers */
-        .container {
-            padding: 16px;
-        }
-
-        /* Full-width input fields */
-        input[type=text], input[type=password] {
-            width: 100%;
-            padding: 15px;
-            margin: 5px 0 22px 0;
-            display: inline-block;
-            border: none;
-            background: #f1f1f1;
-        }
-
-        input[type=text]:focus, input[type=password]:focus {
-            background-color: #ddd;
-            outline: none;
-        }
-
-        /* Overwrite default styles of hr */
-        hr {
-            border: 1px solid #f1f1f1;
-            margin-bottom: 25px;
-        }
-
-        /* Set a style for the submit/register button */
-        .registerbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 16px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            opacity: 0.9;
-        }
-
-        .registerbtn:hover {
-            opacity:1;
-        }
-
-        /* Add a blue text color to links */
-        a {
-            color: dodgerblue;
-        }
-
-        /* Set a grey background color and center the text of the "sign in" section */
-        .signin {
-            background-color: #f1f1f1;
-            text-align: center;
-        }
-    </style>
 </head>
 <body>
 <form name="regForm" th:action="@{/register}" th:object="${login}" method="post">
     <div class="container">
         <h1>Zarejestruj</h1>
         <p>Wypełnij wszystkie pola do zarejestrowania!</p>
+
         <hr>
+        <div class="form-group">
+            <label for="user"><b>Nazwa użytkownika</b></label>
+            <input type="text" placeholder="Nazwa użytkownika" class="form-control" th:field="*{login}" id="user" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+        </div>
 
-        <label for="user"><b>Nazwa użytkownika</b></label>
-        <input type="text" placeholder="Nazwa użytkownika" th:field="*{login}" id="user" required="required">
-        <div class="text text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+        <div class="form-group">
+            <label for="name"><b>Imię</b></label>
+            <input type="text" placeholder="Imię"
+            class="form-control" th:field="*{name}" id="name" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
 
-        <label for="email"><b>Email</b></label>
-        <input type="text" class="form-control" th:field="*{email}" id="email" placeholder="Email" required="required">
-        <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        <div class="form-group">
+            <label for="surname"><b>Nazwisko</b></label>
+            <input type="text" placeholder="Nazwisko" class="form-control" th:field="*{surname}" id="surname" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+        </div>
 
-        <label for="password"><b>Podaj Hasło</b></label>
-        <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Hasło" required="required">
-        <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input type="text" class="form-control" th:field="*{email}" id="email" placeholder="Email" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
 
+        <div class="form-group">
+            <label for="password"><b>Podaj Hasło</b></label>
+            <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Hasło" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
 
         <hr>
 
         <p>Tworząc konto zgadzasz się na przestrzeganie <a href="#">praw autorskich</a>.</p>
-        <button type="submit" class="registerbtn">Zarejestruj</button>
+        <button type="submit" class="btn btn-primary">Zarejestruj</button>
     </div>
 
     <div class="container signin">

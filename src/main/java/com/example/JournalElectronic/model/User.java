@@ -30,6 +30,14 @@ public class User extends Person {
     private String login;
     @Size(min = 4)
 
+    @NotNull
+    @NotEmpty
+    private String name;
+
+    @NotNull
+    @NotEmpty
+    private String surname;
+
     public User() {
     }
 
@@ -38,7 +46,21 @@ public class User extends Person {
         this.password = password;
         this.login = login;
         this.email = email;
+        this.name = name;
+        this.surname = surname;
     }
+
+
+    public String getName() {return name;}
+
+
+    public void setName(String name) {this.name = name;}
+
+
+    public String getSurname() {return surname; }
+
+
+    public void setSurname(String surname) {this.surname = surname;}
 
     public String getPassword() {
         return password;
