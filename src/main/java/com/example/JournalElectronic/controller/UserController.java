@@ -5,6 +5,8 @@ import com.example.JournalElectronic.model.User;
 import com.example.JournalElectronic.service.UserService;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,7 +28,7 @@ public class UserController {
 
     @PostMapping("/register")
         public User addUser(@ModelAttribute User user){
-        System.out.println("Done!");
+        System.out.println("New user has been registered!");
         return userService.saveUser(user);
         }
 
@@ -39,4 +41,16 @@ public class UserController {
             UserDAO.updateUserEmail(id,email);
             return "Email update";
     }
+
+    @PostMapping("/signedIn")
+    public void SignedIn(){
+        System.out.println("User " + SecurityProperties.User.class.getName() + " is logged in!");
+    }
+
+//    @RequestMapping(value = "/signedIn", method = RequestMethod.GET)
+//    @ResponseBody
+//    public String currentUserName(Authentication authentication){
+//        return authentication.getName();
+//    }
+
 }

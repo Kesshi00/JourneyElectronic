@@ -13,6 +13,6 @@ public class Class {
 
 
     @ManyToOne
-    @JoinColumn(name = "teacher_id")
-    private Teacher teacher;
+    @JoinColumn(name = "user_id")
+    private User user;
 }
