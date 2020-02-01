@@ -7,6 +7,7 @@ import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -44,7 +45,7 @@ public class UserController {
 
     @PostMapping("/signedIn")
     public void SignedIn(){
-        System.out.println("User " + SecurityProperties.User.class.getName() + " is logged in!");
+        System.out.println("User " + SecurityContextHolder.getContext().getAuthentication().getName() + " is logged in!");
     }
 
 //    @RequestMapping(value = "/signedIn", method = RequestMethod.GET)

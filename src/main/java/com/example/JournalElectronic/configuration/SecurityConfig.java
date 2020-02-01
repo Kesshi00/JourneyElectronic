@@ -1,6 +1,7 @@
 package com.example.JournalElectronic.configuration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -20,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/index", "/users", "/adduser")
+                .antMatchers("/", "/index", "/users", "/adduser")
                 .hasAnyAuthority("ROLE_USERS")
                 .anyRequest()
                 .permitAll()
@@ -31,13 +32,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .usernameParameter("username")
+                .usernameParameter("login")
                 .passwordParameter("password")
                 .loginProcessingUrl("/login-process")
                 .failureUrl("/login?error")
-                .defaultSuccessUrl("/index")
+                .defaultSuccessUrl("/signedIn")
                 .and()
                 .logout().logoutSuccessUrl("/login");
-
     }
-}
+        @Override
+        protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+            auth.inMemoryAuthentication()
+                    .withUser("user")
+                    .password(passwordEncoder.encode("test"))
+                    .roles("USERS");
+
+            auth.jdbcAuthentication()
+                    .usersByUsernameQuery("SELECT u.login, u.password, 1 from user u where u.login=?")
+                    .authoritiesByUsernameQuery("SELECT u.login, 'ROLE_USER', 1 from user u where u.login=?")
+                    .dataSource(dataSource)
+                    .passwordEncoder(passwordEncoder);
+
+        }
+    }
