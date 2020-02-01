@@ -27,7 +27,6 @@ public class User extends Person {
     @NotNull
     @NotEmpty
     private String login;
-    @Size(min = 4)
 
     @NotNull
     @NotEmpty

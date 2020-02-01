@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/", "/index", "/users", "/adduser")
+                .antMatchers( "/index", "/users", "/adduser")
                 .hasAnyAuthority("ROLE_USERS")
                 .anyRequest()
                 .permitAll()
@@ -36,7 +36,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("password")
                 .loginProcessingUrl("/login-process")
                 .failureUrl("/login?error")
-                .defaultSuccessUrl("/signedIn")
+                .defaultSuccessUrl("/logged")
                 .and()
                 .logout().logoutSuccessUrl("/login");
     }

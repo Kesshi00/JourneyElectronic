@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -15,7 +16,7 @@ import java.io.DataOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+@Controller
 public class UserController {
 
     @Autowired
@@ -28,9 +29,10 @@ public class UserController {
     }
 
     @PostMapping("/register")
-        public User addUser(@ModelAttribute User user){
+        public String addUser(@ModelAttribute User user){
         System.out.println("New user has been registered!");
-        return userService.saveUser(user);
+        userService.saveUser(user);
+        return "logged";
         }
 
 
