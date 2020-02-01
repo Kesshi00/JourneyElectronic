@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>addUser</title>
+    <style>
+        form{
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="name">Imię ucznia</label>
+            <input type="text" class="form-control" id="name" placeholder="Imię ucznia...">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="surname">Nazwisko ucznia</label>
+            <input type="text" class="form-control" id="surname" placeholder="Nazwisko ucznia...">
+        </div>
+    </div>
+    <div class="form-group col-md-4">
+        <label for="inputState">Klasa</label>
+        <select id="inputState" class="form-control">
+            <option selected>Wybierz</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="parentName">Imię rodzica</label>
+            <input type="text" class="form-control" id="parentName" placeholder="Imię rodzica...">
+        </div>
+        <div class="form-group col-md-6">
+            <label for="parentSurname">Nazwisko rodzica</label>
+            <input type="text" class="form-control" id="parentSurname" placeholder="Nazwisko rodzica..">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="inputAddress">Adres zamieszkania</label>
+        <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="inputCity">Miasto</label>
+            <input type="text" class="form-control" id="inputCity">
+        </div>
+
+        <div class="form-group col-md-2">
+            <label for="inputZip">Zip</label>
+            <input type="text" class="form-control" id="inputZip">
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Dodaj</button>
+</form>
+</body>
+</html>
