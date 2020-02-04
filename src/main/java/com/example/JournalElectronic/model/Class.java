@@ -7,6 +7,7 @@ import java.util.List;
 public class Class {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private int classNr;
     private int roomNr;

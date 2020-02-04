@@ -279,14 +279,12 @@
             <li class="nav-item"><a href="/login" class="nav-link">Główna</a></li>
             <li class="nav-item"><a href="/aboutUs" class="nav-link">O nas</a></li>
             <li class="nav-item"><a href="/calendar" class="nav-link">Kalendarz</a></li>
-            ​
             <li class="nav-item dropdown">
-                ​
             <li class="nav-item"><a href="/contact" class="nav-link">Kontakt</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right ml-auto">
             <li class="nav-item">
-                <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Witaj login</a>
+                <a data-toggle="dropdown" class="nav-link dropdown-toggle" href="#">Witaj <span style="color: red" th:utext="${username}"></span></a>
                 <ul class="dropdown-menu form-wrapper">
                     <li>
                     </li>
@@ -320,8 +318,8 @@
             </thead>
             <tbody>
             <tr th:each="student : ${allStudents}">
-                    <td th:text="${student.name}"></td>
-                    <td th:text="${student.surname}"></td>
+                <td th:text="${student.name}"></td>
+                <td th:text="${student.surname}"></td>
                 <td>
                     <input type="radio" name="yes_no" checked>Yes
                     <input type="radio" name="yes_no">No
