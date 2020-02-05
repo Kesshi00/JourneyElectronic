@@ -6,6 +6,7 @@ import com.example.JournalElectronic.service.UserService;
 import org.hibernate.annotations.GeneratorType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.security.config.annotation.web.configurers.FormLoginConfigurer;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -34,7 +35,6 @@ public class UserController {
         userService.saveUser(user);
         return "logged";
         }
-
 
     @GetMapping("/testujemy")
     public String test() {

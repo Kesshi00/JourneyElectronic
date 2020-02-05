@@ -12,6 +12,7 @@ public class LoginController {
 
     @GetMapping("/login")
     public ModelAndView login() {
+        System.out.println("User logged in!");
         return new ModelAndView("login", "userToInsert", new User());
     }
 }

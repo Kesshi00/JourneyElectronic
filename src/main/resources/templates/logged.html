@@ -276,11 +276,9 @@
     <!-- Collection of nav links, forms, and other content for toggling -->
     <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
         <ul class="nav navbar-nav">
-            <li class="nav-item"><a href="/login" class="nav-link">Główna</a></li>
-            <li class="nav-item"><a href="/aboutUs" class="nav-link">O nas</a></li>
+            <li class="nav-item"><a href="/logged" class="nav-link">Główna</a></li>
             <li class="nav-item"><a href="/calendar" class="nav-link">Kalendarz</a></li>
             <li class="nav-item dropdown">
-            <li class="nav-item"><a href="/contact" class="nav-link">Kontakt</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right ml-auto">
             <li class="nav-item">
@@ -290,8 +288,11 @@
                     </li>
                 </ul>
             </li>
+            </li>
             <li class="nav-item">
-                <a href="/register" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1">Wyloguj</a>
+                <form th:action="@{/perform_logout}" method="post">
+                    <input type="submit" class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1" value="Wyloguj">
+                </form>
             </li>
         </ul>
     </div>

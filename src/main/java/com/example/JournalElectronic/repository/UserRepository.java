@@ -7,4 +7,5 @@ import org.springframework.scheduling.config.Task;
 import java.util.List;
 
 public interface UserRepository extends JpaRepository<User,Long> {
+
 }
