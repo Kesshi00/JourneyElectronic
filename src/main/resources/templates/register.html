@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/registerStyle.css">
+    <meta charset="UTF-8">
+    <title>RegisterForm</title>
+
+</head>
+<body>
+<form name="regForm" th:action="@{/register}" th:object="${login}" method="post">
+    <div class="container">
+        <h1>Zarejestruj</h1>
+        <p>Wypełnij wszystkie pola do zarejestrowania!</p>
+
+        <hr>
+        <div class="form-group">
+            <label for="user"><b>Nazwa użytkownika</b></label>
+            <input type="text" placeholder="Nazwa użytkownika" class="form-control" th:field="*{login}" id="user" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="name"><b>Imię</b></label>
+            <input type="text" placeholder="Imię"
+            class="form-control" th:field="*{name}" id="name" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="surname"><b>Nazwisko</b></label>
+            <input type="text" placeholder="Nazwisko" class="form-control" th:field="*{surname}" id="surname" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email"><b>Email</b></label>
+            <input type="text" class="form-control" th:field="*{email}" id="email" placeholder="Email" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password"><b>Podaj Hasło</b></label>
+            <input type="password" class="form-control" th:field="*{password}" id="password" placeholder="Hasło" required="required">
+            <div class="text text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+
+        <hr>
+
+        <p>Tworząc konto zgadzasz się na przestrzeganie <a href="#">praw autorskich</a>.</p>
+        <button type="submit" th:action="*{login}" class="btn btn-primary">Zarejestruj</button>
+    </div>
+
+    <div class="container signin">
+        <p>Posiadasz już konto? <a href="/login">Zaloguj się</a>.</p>
+    </div>
+</form>
+</body>
+</html>
+
+<!--<ul class="dropdown-menu form-wrapper">-->
+<!--    <li>-->
+<!--        <form th:action="@{/adduser}" th:object="${userToInsert}" method="post">-->
+<!--            <p class="hint-text">Wypełnij wszystkie pola to zarejestrowania!</p>-->
+<!--            <div class="form-group">-->
+<!--                <input type="username" class="form-control" th:field="*{login}" placeholder="Nazwa użytownika" required="required">-->
+<!--            </div>-->
+<!--            <div class="form-group">-->
+<!--                <input type="password" class="form-control" th:field="*{password}" placeholder="Hasło" required="required">-->
+<!--            </div>-->
+<!--            &lt;!&ndash;                            <div class="form-group">&ndash;&gt;-->
+<!--            &lt;!&ndash;                                <input type="email" class="form-control" th:field="*{email}" placeholder="Podaj email" required="required">&ndash;&gt;-->
+<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
+<!--            <div class="form-group">-->
+<!--                <label class="checkbox-inline"><input type="checkbox" required="required"> Zaakceptuj <a href="#">Prawa Autorskie</a></label>-->
+<!--            </div>-->
+<!--            <input type="submit" class="btn btn-primary btn-block" name="signUp" th:action="@{/user}" value="Sign up">-->
+<!--        </form>-->
+<!--    </li>-->
+<!--</ul>-->
