@@ -28,10 +28,6 @@ Version 1.0 Alpha
 
 >Tomasz Mrowiec
 
->Mateusz Ochel
-
->Łukasz Tota
-
 # Acknowledgments
 
 Inspiration was taken from our friend to create something new for theys day room. Aplication is still not complete, but we gonna done in at days.
