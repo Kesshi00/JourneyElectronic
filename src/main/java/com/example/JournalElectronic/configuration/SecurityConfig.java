@@ -27,12 +27,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/index", "/users", "/adduser")
-                .hasAnyAuthority("ROLE_USERS")
-                .anyRequest()
-                .permitAll()
+                .hasAuthority("ROLE_USERS")
+                .anyRequest().permitAll()
                 .and()
-                .csrf()
-                .disable()
+                .csrf().disable()
                 .headers().frameOptions().disable()
                 .and()
                 .formLogin()
@@ -62,6 +60,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authoritiesByUsernameQuery("SELECT u.login, 'ROLE_USER', 1 from user u where u.login=?")
                 .dataSource(dataSource)
                 .passwordEncoder(passwordEncoder);
-
     }
 }
