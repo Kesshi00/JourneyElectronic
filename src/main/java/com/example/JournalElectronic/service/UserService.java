@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.management.relation.Role;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +17,9 @@ import java.util.Optional;
 @Service
 public class UserService {
 
+    @Autowired
     private UserRepository userRepository;
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
 
@@ -25,9 +28,13 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public User saveUser(User user) {
-        user.setPassword(passwordEncoder.encode(user.getPassword()));
-        return userRepository.save(user);
+    public User saveUser(@Valid User user) {
+        if (user != null && user.getEmail() != null && user.getPassword() != null ) {
+            user.setPassword(passwordEncoder.encode(user.getPassword()));
+            return userRepository.save(user);
+        } else {
+            throw new IllegalArgumentException("Nieprawidłowe dane użytkownika");
+        }
     }
 
     public List<User> getAllUsers() {
