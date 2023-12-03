@@ -29,7 +29,7 @@ public class UserService {
     }
 
     public User saveUser(@Valid User user) {
-        if (user != null && user.getEmail() != null && user.getPassword() != null ) {
+        if (user != null && user.getEmail() != null && user.getPassword() != null) {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
             return userRepository.save(user);
         } else {
@@ -41,9 +41,7 @@ public class UserService {
         return userRepository.findAll();
     }
 
-
-    //                                           TRZEBA SPRAWIĆ ABY TEN KOD ZADZIAŁAŁ!
-//    public boolean isUserPresent(String email) {
-//        User user = (User) userRepository.findByUser("email");
-//        return false;
+    public boolean isUserPresent(String email) {
+        return userRepository.existsbyEmail(email);
     }
+}
